@@ -9,21 +9,31 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none;
         }
 
         /* Custom Sparkly Hot Pink Cursor */
         .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid #ff1493;
-            border-radius: 50%;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 14px solid #ff1493;
             position: fixed;
             pointer-events: none;
             z-index: 9999;
             transition: transform 0.15s ease;
-            background: radial-gradient(circle, rgba(255,20,147,0.6) 0%, rgba(255,20,147,0) 70%);
-            box-shadow: 0 0 20px #ff1493, 0 0 40px #ff1493, 0 0 60px #ff1493;
+            filter: drop-shadow(0 0 10px #ff1493) drop-shadow(0 0 20px #ff1493);
+            transform-origin: top center;
+        }
+
+        .cursor::after {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: -8px;
+            width: 16px;
+            height: 16px;
+            background: radial-gradient(circle, rgba(255,20,147,0.4) 0%, rgba(255,20,147,0) 70%);
         }
 
         .cursor-follower {
