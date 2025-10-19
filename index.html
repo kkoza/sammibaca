@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sammi Baca</title>
+    <title>~*Sammi Baca*~</title>
     <style>
         * {
             margin: 0;
@@ -72,296 +72,294 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            background: #faf9f6;
-            color: #2d4a3e;
-            line-height: 1.7;
+            font-family: 'Trebuchet MS', 'Arial', sans-serif;
+            background: #000000;
+            color: #00d4ff;
+            line-height: 1.6;
         }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #c3cfe2 0%, #f5f1e8 100%);
-            position: relative;
+        /* Marquee */
+        .marquee {
+            background: linear-gradient(90deg, #000000, #001a1f, #000000);
+            color: #00ffff;
+            padding: 10px 0;
+            font-size: 14px;
+            overflow: hidden;
+            white-space: nowrap;
+            border-top: 3px solid #00d4ff;
+            border-bottom: 3px solid #00d4ff;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
         }
 
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-        }
-
-        h1 {
-            font-size: 5rem;
-            font-weight: 300;
-            color: #2d4a3e;
-            margin-bottom: 1rem;
-            letter-spacing: -2px;
-        }
-
-        .tagline {
-            font-size: 1.5rem;
-            color: #6b8e7f;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
-            color: #5a7268;
-            margin-bottom: 3rem;
-            line-height: 1.9;
-        }
-
-        .cta-button {
+        .marquee p {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: #2d4a3e;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-family: 'Arial', sans-serif;
+            animation: scroll 20s linear infinite;
         }
 
-        .cta-button:hover {
-            background: #1f3329;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(45, 74, 62, 0.3);
+        @keyframes scroll {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
         }
 
-        /* About Section */
-        .about {
-            padding: 6rem 2rem;
-            background: #faf9f6;
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: linear-gradient(135deg, #001a1f 0%, #002a33 100%);
+            border: 3px solid #00d4ff;
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.6), inset 0 0 60px rgba(0, 212, 255, 0.1);
+            border-radius: 20px;
         }
 
-        .about-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+        /* Header */
+        .header {
+            background: linear-gradient(180deg, #003d4d, #001a1f);
+            padding: 40px;
+            text-align: center;
+            border-bottom: 3px solid #00d4ff;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+            overflow: hidden;
         }
 
-        .about-image {
-            width: 100%;
-            height: 500px;
-            background: linear-gradient(135deg, #c3cfe2 0%, #b8c6db 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
         }
 
-        .about-text h2 {
-            font-size: 2.5rem;
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            color: #00ffff;
+            text-shadow: 
+                0 0 10px #00d4ff,
+                0 0 20px #00d4ff,
+                0 0 30px #00d4ff,
+                0 0 40px #00d4ff;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
             font-weight: 300;
-            margin-bottom: 1.5rem;
-            color: #2d4a3e;
+            letter-spacing: 3px;
         }
 
-        .about-text p {
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #ff1493;
+            font-style: italic;
+        }
+
+        /* Navigation */
+        .nav {
+            background: #2d4a3e;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 3px solid #ff1493;
+        }
+
+        .nav a {
+            color: #00ff00;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
             font-size: 1.1rem;
-            color: #5a7268;
-            line-height: 1.9;
-            margin-bottom: 1.5rem;
         }
 
-        /* Passions Section */
-        .passions {
-            padding: 6rem 2rem;
+        .nav a:hover {
+            color: #ff1493;
+            text-decoration: underline;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 30px;
+            border-bottom: 3px dotted #6b8e7f;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #2d4a3e;
+            text-align: center;
+            margin-bottom: 20px;
+            text-decoration: underline;
+            text-decoration-color: #ff1493;
+        }
+
+        .section p {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        /* Table Layout (classic 2000s) */
+        .passion-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .passion-table td {
+            width: 50%;
+            padding: 20px;
+            border: 2px solid #6b8e7f;
+            text-align: center;
             background: linear-gradient(135deg, #e8eef5 0%, #f5f1e8 100%);
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 300;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: #2d4a3e;
-        }
-
-        .passions-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .passion-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 8px;
-            border-left: 4px solid #2d4a3e;
-            transition: all 0.3s ease;
-        }
-
-        .passion-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(45, 74, 62, 0.1);
-        }
-
-        .passion-icon {
+        .passion-table .icon {
             font-size: 3rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 10px;
         }
 
-        .passion-card h3 {
-            font-size: 1.8rem;
+        .passion-table h3 {
+            font-size: 1.5rem;
             color: #2d4a3e;
-            margin-bottom: 1rem;
-            font-weight: 400;
+            margin-bottom: 10px;
         }
 
-        .passion-card p {
-            font-size: 1.1rem;
-            color: #5a7268;
-            line-height: 1.8;
-        }
-
-        /* Community Section */
-        .community {
-            padding: 6rem 2rem;
-            background: #faf9f6;
-        }
-
-        .community-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .community-container h2 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 2rem;
-            color: #2d4a3e;
-        }
-
-        .community-container p {
-            font-size: 1.2rem;
-            color: #5a7268;
-            line-height: 1.9;
-            margin-bottom: 2rem;
-        }
-
-        .community-values {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .value-item {
-            padding: 2rem;
-            background: linear-gradient(135deg, #c3cfe2 0%, #f5f1e8 100%);
-            border-radius: 8px;
-        }
-
-        .value-item h4 {
-            font-size: 1.2rem;
-            color: #2d4a3e;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .value-item p {
-            font-size: 0.95rem;
-            color: #5a7268;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, #c3cfe2 0%, #f5f1e8 100%);
-        }
-
-        .contact-container {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-container h2 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 2rem;
-            color: #2d4a3e;
-        }
-
-        .contact-container p {
-            font-size: 1.2rem;
-            color: #5a7268;
-            margin-bottom: 3rem;
-            line-height: 1.9;
-        }
-
-        .contact-links {
+        /* Community Values */
+        .values {
             display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            align-items: center;
+            justify-content: space-around;
+            margin-top: 20px;
         }
 
-        .contact-link {
+        .value-box {
+            width: 30%;
+            padding: 15px;
+            background: #c3cfe2;
+            border: 3px outset #6b8e7f;
+            text-align: center;
+            font-weight: bold;
+            color: #2d4a3e;
+        }
+
+        /* Buttons */
+        .button {
+            display: inline-block;
+            padding: 10px 30px;
+            background: linear-gradient(to bottom, #6b8e7f, #2d4a3e);
+            color: white;
+            text-decoration: none;
+            border: 3px outset #6b8e7f;
+            font-weight: bold;
             font-size: 1.1rem;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+
+        .button:hover {
+            background: linear-gradient(to bottom, #2d4a3e, #6b8e7f);
+            border-style: inset;
+        }
+
+        .button:active {
+            border-style: inset;
+        }
+
+        /* Contact Links */
+        .contact-links {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .contact-links a {
+            display: block;
             color: #2d4a3e;
             text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            padding-bottom: 0.25rem;
-            border-bottom: 2px solid transparent;
+            font-size: 1.2rem;
+            margin: 10px 0;
+            font-weight: bold;
         }
 
-        .contact-link:hover {
-            color: #6b8e7f;
-            border-bottom-color: #6b8e7f;
+        .contact-links a:hover {
+            color: #ff1493;
+            text-decoration: underline;
         }
 
         /* Footer */
-        footer {
-            padding: 3rem 2rem;
+        .footer {
+            background: #2d4a3e;
+            color: #00ff00;
             text-align: center;
-            background: #faf9f6;
-            color: #6b8e7f;
-            font-size: 0.9rem;
+            padding: 20px;
+            border-top: 3px solid #ff1493;
+        }
+
+        .footer img {
+            width: 88px;
+            height: 31px;
+            margin: 5px;
+        }
+
+        /* Visitor Counter */
+        .counter {
+            text-align: center;
+            padding: 10px;
+            background: black;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            border: 2px solid #00ff00;
+            margin: 10px;
+        }
+
+        /* Blink effect */
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        /* Image placeholder */
+        .image-box {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            background: linear-gradient(135deg, #c3cfe2, #b8c6db);
+            border: 3px ridge #6b8e7f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
         }
 
         /* Responsive */
-        @media (max-width: 968px) {
-            h1 {
-                font-size: 3.5rem;
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-width: 3px;
             }
 
-            .about-container {
-                grid-template-columns: 1fr;
+            .header h1 {
+                font-size: 2rem;
             }
 
-            .passions-grid {
-                grid-template-columns: 1fr;
+            .passion-table td {
+                display: block;
+                width: 100%;
             }
 
-            .community-values {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 2.5rem;
+            .values {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .tagline {
-                font-size: 1.2rem;
+            .value-box {
+                width: 80%;
+                margin: 10px 0;
             }
         }
     </style>
@@ -371,171 +369,96 @@
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Sammi Baca</h1>
-            <p class="tagline">Artist. Chef. Community Builder.</p>
-            <a href="#community" class="cta-button">Be Inspired?</a>
-        </div>
-    </section>
+    <!-- Scrolling Marquee -->
+    <div class="marquee">
+        <p>★ Welcome to Sammi's Page! ★ Art & Cooking & Community ★ Thanks for visiting! ★ Sign my guestbook! ★</p>
+    </div>
 
-    <!-- About Section -->
-    <section class="about">
-        <div class="about-container">
-            <div class="about-image">🌿</div>
-            <div class="about-text">
-                <h2>Hi, I'm Sammi</h2>
-                <p>
-                    Creating beautiful food and visual art. Building an intentional community 
-                    of people who value creativity and connection.
-                </p>
-            </div>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>~*Sammi Baca*~</h1>
+            <p class="subtitle">✿ Artist • Chef • Community Builder ✿</p>
         </div>
-    </section>
 
-    <!-- Passions Section -->
-    <section class="passions">
-        <h2 class="section-title">What I Create</h2>
-        <div class="passions-grid">
-            <div class="passion-card">
-                <div class="passion-icon">🍳</div>
-                <h3>Cooking</h3>
-                <p>
-                    Pure presence. Instinct and flow. Chasing umami.
-                </p>
-            </div>
-            <div class="passion-card">
-                <div class="passion-icon">🎨</div>
-                <h3>Visual Art</h3>
-                <p>
-                    Color, texture, emotion. Slowing down to notice beauty.
-                </p>
-            </div>
+        <!-- Navigation -->
+        <div class="nav">
+            <a href="#about">About</a>
+            <a href="#passions">Passions</a>
+            <a href="#community">Community</a>
+            <a href="#contact">Contact</a>
         </div>
-    </section>
 
-    <!-- Community Section -->
-    <section class="community" id="community">
-        <div class="community-container">
-            <h2>Small & Intentional</h2>
+        <!-- About Section -->
+        <div class="section" id="about">
+            <h2>♥ About Me ♥</h2>
+            <div class="image-box">🌿</div>
+            <p>
+                Creating beautiful food and visual art. Building an intentional community 
+                of people who value creativity and connection.
+            </p>
+            <center>
+                <a href="#community" class="button">Be Inspired?</a>
+            </center>
+        </div>
+
+        <!-- Passions Section -->
+        <div class="section" id="passions">
+            <h2>✧ What I Create ✧</h2>
+            <table class="passion-table">
+                <tr>
+                    <td>
+                        <div class="icon">🍳</div>
+                        <h3>Cooking</h3>
+                        <p>Pure presence. Instinct and flow. Chasing umami.</p>
+                    </td>
+                    <td>
+                        <div class="icon">🎨</div>
+                        <h3>Visual Art</h3>
+                        <p>Color, texture, emotion. Slowing down to notice beauty.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Community Section -->
+        <div class="section" id="community">
+            <h2>☆ Small & Intentional ☆</h2>
             <p>
                 Building a community of people who care about living with purpose, 
                 creating with their hands, and supporting one another.
             </p>
-            
-            <div class="community-values">
-                <div class="value-item">
-                    <h4>Intentionality</h4>
-                </div>
-                <div class="value-item">
-                    <h4>Creativity</h4>
-                </div>
-                <div class="value-item">
-                    <h4>Connection</h4>
-                </div>
+            <div class="values">
+                <div class="value-box">Intentionality</div>
+                <div class="value-box">Creativity</div>
+                <div class="value-box">Connection</div>
             </div>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section class="contact">
-        <div class="contact-container">
-            <h2>Let's Connect</h2>
+        <!-- Visitor Counter -->
+        <div class="counter">
+            <span class="blink">●</span> You are visitor #123,456 <span class="blink">●</span>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section" id="contact">
+            <h2>✉ Let's Connect ✉</h2>
             <div class="contact-links">
-                <a href="mailto:sammi@example.com" class="contact-link">sammi@example.com</a>
-                <a href="#" class="contact-link">Instagram</a>
-                <a href="#" class="contact-link">Newsletter</a>
+                <a href="mailto:sammi@example.com">📧 Email Me!</a>
+                <a href="#">📸 Instagram</a>
+                <a href="#">📰 Newsletter</a>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Sammi Baca</p>
-    </footer>to build a small, intentional community of people who understand 
-                    that life is meant to be savored, created, and shared with those who truly see you.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Passions Section -->
-    <section class="passions">
-        <h2 class="section-title">What I Create</h2>
-        <div class="passions-grid">
-            <div class="passion-card">
-                <div class="passion-icon">🍳</div>
-                <h3>Cooking</h3>
-                <p>
-                    Cooking is pure presence. I can't think and cook at the same time—
-                    it's all instinct, flavor, and flow. Chasing that perfect umami, 
-                    layering depth and richness until every bite tells you exactly what it needs to be.
-                </p>
-            </div>
-            <div class="passion-card">
-                <div class="passion-icon">🎨</div>
-                <h3>Visual Art</h3>
-                <p>
-                    Through painting and mixed media, I explore color, texture, and emotion. 
-                    My work is an invitation to slow down, to notice beauty in unexpected places, 
-                    and to feel deeply.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Community Section -->
-    <section class="community" id="community">
-        <div class="community-container">
-            <h2>Building Something Beautiful Together</h2>
-            <p>
-                I'm not interested in building a massive following. I'm interested in cultivating 
-                a small, intentional community of people who care about living with purpose, 
-                creating with their hands, and supporting one another.
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025 Sammi Baca</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">
+                Best viewed in Netscape Navigator 4.0 or higher
             </p>
-            <p>
-                If you're someone who values slow living, creative expression, and genuine connection, 
-                you belong here.
-            </p>
-            
-            <div class="community-values">
-                <div class="value-item">
-                    <h4>Intentionality</h4>
-                    <p>Everything we do is done with care and purpose</p>
-                </div>
-                <div class="value-item">
-                    <h4>Creativity</h4>
-                    <p>We honor all forms of creative expression</p>
-                </div>
-                <div class="value-item">
-                    <h4>Connection</h4>
-                    <p>Real relationships over surface-level engagement</p>
-                </div>
-            </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact">
-        <div class="contact-container">
-            <h2>Let's Connect</h2>
-            <p>
-                Whether you want to collaborate, share a recipe, or just say hello—
-                I'd love to hear from you.
-            </p>
-            <div class="contact-links">
-                <a href="mailto:sammi@example.com" class="contact-link">sammi@example.com</a>
-                <a href="#" class="contact-link">Instagram</a>
-                <a href="#" class="contact-link">Newsletter</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Sammi Baca. Made with love and intention.</p>
-    </footer>
+    </div>
 
     <script>
         // Custom Sparkly Hot Pink Cursor
