@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sammi Baca</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        /* Custom Sparkly Hot Pink Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ff1493;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease;
+            background: radial-gradient(circle, rgba(255,20,147,0.6) 0%, rgba(255,20,147,0) 70%);
+            box-shadow: 0 0 20px #ff1493, 0 0 40px #ff1493, 0 0 60px #ff1493;
+        }
+
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,20,147,0.3);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.3s ease;
+            background: radial-gradient(circle, rgba(255,20,147,0.1) 0%, rgba(255,20,147,0) 70%);
+        }
+
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            width: 4px;
+            height: 4px;
+            background: #ff1493;
+            border-radius: 50%;
+            animation: sparkleFloat 1s ease-out forwards;
+            z-index: 9997;
+            box-shadow: 0 0 10px #ff1493;
+        }
+
+        @keyframes sparkleFloat {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-30px) scale(0);
+            }
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #faf9f6;
+            color: #2d4a3e;
+            line-height: 1.7;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #c3cfe2 0%, #f5f1e8 100%);
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 5rem;
+            font-weight: 300;
+            color: #2d4a3e;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #6b8e7f;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #5a7268;
+            margin-bottom: 3rem;
+            line-height: 1.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #2d4a3e;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .cta-button:hover {
+            background: #1f3329;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(45, 74, 62, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: #faf9f6;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #c3cfe2 0%, #b8c6db 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: #2d4a3e;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #5a7268;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Passions Section */
+        .passions {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #e8eef5 0%, #f5f1e8 100%);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: #2d4a3e;
+        }
+
+        .passions-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .passion-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            border-left: 4px solid #2d4a3e;
+            transition: all 0.3s ease;
+        }
+
+        .passion-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(45, 74, 62, 0.1);
+        }
+
+        .passion-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .passion-card h3 {
+            font-size: 1.8rem;
+            color: #2d4a3e;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .passion-card p {
+            font-size: 1.1rem;
+            color: #5a7268;
+            line-height: 1.8;
+        }
+
+        /* Community Section */
+        .community {
+            padding: 6rem 2rem;
+            background: #faf9f6;
+        }
+
+        .community-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .community-container h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: #2d4a3e;
+        }
+
+        .community-container p {
+            font-size: 1.2rem;
+            color: #5a7268;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+        }
+
+        .community-values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-item {
+            padding: 2rem;
+            background: linear-gradient(135deg, #c3cfe2 0%, #f5f1e8 100%);
+            border-radius: 8px;
+        }
+
+        .value-item h4 {
+            font-size: 1.2rem;
+            color: #2d4a3e;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .value-item p {
+            font-size: 0.95rem;
+            color: #5a7268;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #c3cfe2 0%, #f5f1e8 100%);
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: #2d4a3e;
+        }
+
+        .contact-container p {
+            font-size: 1.2rem;
+            color: #5a7268;
+            margin-bottom: 3rem;
+            line-height: 1.9;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .contact-link {
+            font-size: 1.1rem;
+            color: #2d4a3e;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid transparent;
+        }
+
+        .contact-link:hover {
+            color: #6b8e7f;
+            border-bottom-color: #6b8e7f;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: #faf9f6;
+            color: #6b8e7f;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .passions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .community-values {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Sammi Baca</h1>
+            <p class="tagline">Artist. Chef. Community Builder.</p>
+            <p class="hero-description">
+                Creating beautiful food and visual art, while cultivating an intentional 
+                community of kindred spirits who value creativity, connection, and conscious living.
+            </p>
+            <a href="#community" class="cta-button">Join the Community</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-container">
+            <div class="about-image">🌿</div>
+            <div class="about-text">
+                <h2>Hi, I'm Sammi</h2>
+                <p>
+                    I believe that the act of creating—whether it's a meal or a painting—is sacred. 
+                    Both cooking and visual art are expressions of love, intention, and presence.
+                </p>
+                <p>
+                    My mission is to build a small, intentional community of people who understand 
+                    that life is meant to be savored, created, and shared with those who truly see you.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Passions Section -->
+    <section class="passions">
+        <h2 class="section-title">What I Create</h2>
+        <div class="passions-grid">
+            <div class="passion-card">
+                <div class="passion-icon">🍳</div>
+                <h3>Cooking</h3>
+                <p>
+                    Food is art that nourishes. I create recipes that honor ingredients, seasons, 
+                    and the simple pleasure of gathering around a table with people you love. 
+                    Every meal is an opportunity for connection.
+                </p>
+            </div>
+            <div class="passion-card">
+                <div class="passion-icon">🎨</div>
+                <h3>Visual Art</h3>
+                <p>
+                    Through painting and mixed media, I explore color, texture, and emotion. 
+                    My work is an invitation to slow down, to notice beauty in unexpected places, 
+                    and to feel deeply.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community" id="community">
+        <div class="community-container">
+            <h2>Building Something Beautiful Together</h2>
+            <p>
+                I'm not interested in building a massive following. I'm interested in cultivating 
+                a small, intentional community of people who care about living with purpose, 
+                creating with their hands, and supporting one another.
+            </p>
+            <p>
+                If you're someone who values slow living, creative expression, and genuine connection, 
+                you belong here.
+            </p>
+            
+            <div class="community-values">
+                <div class="value-item">
+                    <h4>Intentionality</h4>
+                    <p>Everything we do is done with care and purpose</p>
+                </div>
+                <div class="value-item">
+                    <h4>Creativity</h4>
+                    <p>We honor all forms of creative expression</p>
+                </div>
+                <div class="value-item">
+                    <h4>Connection</h4>
+                    <p>Real relationships over surface-level engagement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="contact-container">
+            <h2>Let's Connect</h2>
+            <p>
+                Whether you want to collaborate, share a recipe, or just say hello—
+                I'd love to hear from you.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:sammi@example.com" class="contact-link">sammi@example.com</a>
+                <a href="#" class="contact-link">Instagram</a>
+                <a href="#" class="contact-link">Newsletter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Sammi Baca. Made with love and intention.</p>
+    </footer>
+
+    <script>
+        // Custom Sparkly Hot Pink Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Create sparkle effect
+            if (Math.random() > 0.8) {
+                createSparkle(e.clientX, e.clientY);
+            }
+        });
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        }
+
+        function animate() {
+            // Smooth cursor movement
+            cursorX += (mouseX - cursorX) * 0.3;
+            cursorY += (mouseY - cursorY) * 0.3;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+
+            // Smooth follower movement (slower)
+            followerX += (mouseX - followerX) * 0.1;
+            followerY += (mouseY - followerY) * 0.1;
+            cursorFollower.style.left = followerX + 'px';
+            cursorFollower.style.top = followerY + 'px';
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Hide cursor when leaving window
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+            cursorFollower.style.opacity = '0';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = '1';
+            cursorFollower.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
